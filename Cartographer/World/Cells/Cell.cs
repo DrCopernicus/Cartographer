@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cartographer.World.Cells.Layers;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Cartographer.World.Cells
@@ -14,6 +15,8 @@ namespace Cartographer.World.Cells
 
         public double WindDirection { get { return _windDirection; } }
         public double WindHeat { get { return _windDirection; } }
+
+        public MantleLayer MantleLayer = new MantleLayer();
 
         public double Latitude
         {
@@ -41,7 +44,7 @@ namespace Cartographer.World.Cells
 
         public void Simulate()
         {
-            
+            MantleLayer.Simulate(this);
         }
 
         public List<Cell> Subdivide()
@@ -59,16 +62,6 @@ namespace Cartographer.World.Cells
             };
 
             return list;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0}L{1}L{2}", Points[0], Points[1], Points[2]);
-        }
-
-        public DisplayCell MakeDisplayCell()
-        {
-            return new DisplayCell();
         }
     }
 }

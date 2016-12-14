@@ -9,10 +9,10 @@ namespace Cartographer.World.Projectors
     {
         public List<DisplayCell> ProjectCells(List<DisplayCell> cells)
         {
-            return cells.Select(ProjectCell).Where(cell => cell != null).Select(cell => cell.Value).ToList();
+            return cells.Select(ProjectCell).Where(cell => cell != null).ToList();
         }
 
-        public DisplayCell? ProjectCell(DisplayCell cell)
+        public DisplayCell ProjectCell(DisplayCell cell)
         {
             var newCell = cell;
             newCell.Points = cell.Points.Select(ProjectPoint).ToArray();

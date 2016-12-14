@@ -4,6 +4,5 @@
     {
         public bool ShowConvectionDirection;
         public bool ShowCellOutline;
-        public RenderLayer Layer;
     }
 }

@@ -4,6 +4,6 @@
     {
         None,
         Hemispherical,
-        OceanDepth
+        MantleHeat
     }
 }

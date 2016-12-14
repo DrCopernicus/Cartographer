@@ -2,7 +2,7 @@
 
 namespace Cartographer.World.Cells
 {
-    public struct DisplayCell
+    public class DisplayCell
     {
         public Point[] Points;
 

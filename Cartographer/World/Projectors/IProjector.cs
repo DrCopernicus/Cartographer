@@ -6,7 +6,7 @@ namespace Cartographer.World.Projectors
     public interface IProjector
     {
         List<DisplayCell> ProjectCells(List<DisplayCell> cells);
-        DisplayCell? ProjectCell(DisplayCell cell);
+        DisplayCell ProjectCell(DisplayCell cell);
         Point ProjectPoint(Point point);
     }
 }

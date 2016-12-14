@@ -81,5 +81,12 @@ namespace Cartographer.World
 
             return cells;
         }
+
+        public void Simulate(int ticks)
+        {
+            for (var i = 0; i < ticks; i++)
+                foreach (var cell in Cells)
+                    cell.Simulate();
+        }
     }
 }

@@ -12,13 +12,14 @@ namespace Cartographer
         {
             var p = new Planet(5);
 
-            var renderer = new CellRenderer();
+            p.Simulate(500);
+
             var projector = new EquirectangularProjector();
+            var renderer = new MantleHeatRenderer();
             var options = new CellRenderOptions
             {
                 ShowCellOutline = false,
-                ShowConvectionDirection = true,
-                Layer = RenderLayer.Hemispherical
+                ShowConvectionDirection = true
             };
 
             var projection = projector.ProjectCells(renderer.RenderCells(p.Cells, options));
