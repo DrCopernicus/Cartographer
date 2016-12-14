@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cartographer.World.Cells;
+using System;
 using System.Collections.Generic;
 
 namespace Cartographer.World

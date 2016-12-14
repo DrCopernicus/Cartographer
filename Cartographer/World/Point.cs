@@ -40,6 +40,16 @@ namespace Cartographer.World
             return point;
         }
 
+        public double GetLongitude(Point center)
+        {
+            return Math.Atan2(Y, X);
+        }
+
+        public double GetLatitude(Point center)
+        {
+            return Math.Atan2(Z, Math.Sqrt(X * X + Y * Y));
+        }
+
         public static Point Zero()
         {
             return new Point(0, 0, 0);
@@ -47,7 +57,7 @@ namespace Cartographer.World
 
         public override string ToString()
         {
-            return string.Format("{0:0.000}\t{1:0.000}", X*100+157, Y*100+157);
+            return string.Format("{0:0.000},{1:0.000}", X*100+157, Y*100+157);
         }
     }
 }

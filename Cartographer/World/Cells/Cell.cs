@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace Cartographer.World
+namespace Cartographer.World.Cells
 {
-    public class Cell
+    public class Cell : ICell
     {
-        public Point[] Points;
+        private Point[] _points;
+        public Point[] Points { get { return _points; } }
 
         private double _windDirection;
         private double _windHeat;
@@ -13,18 +15,28 @@ namespace Cartographer.World
         public double WindDirection { get { return _windDirection; } }
         public double WindHeat { get { return _windDirection; } }
 
+        public double Latitude
+        {
+            get { return Points.Select(point => point.GetLatitude(Point.Zero())).Average(); }
+        }
+
+        public double Longitude
+        {
+            get { return Points.Select(point => point.GetLongitude(Point.Zero())).Average(); }
+        }
+
         public Cell(Point[] points)
         {
             _windDirection = 0;
             _windHeat = 0;
-            Points = points;
+            _points = points;
         }
 
         public Cell(Point a, Point b, Point c)
         {
             _windDirection = 0;
             _windHeat = 0;
-            Points = new []{a, b, c};
+            _points = new[] { a, b, c };
         }
 
         public void Simulate()
@@ -52,6 +64,11 @@ namespace Cartographer.World
         public override string ToString()
         {
             return string.Format("{0}L{1}L{2}", Points[0], Points[1], Points[2]);
+        }
+
+        public DisplayCell MakeDisplayCell()
+        {
+            return new DisplayCell();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Cartographer.World;
+﻿using Cartographer.Renderer;
+using Cartographer.World;
+using Cartographer.World.Projectors;
 using System;
 using System.IO;
 
@@ -9,11 +11,17 @@ namespace Cartographer
         public static void Main(string[] args)
         {
             var p = new Planet(5);
-//            Console.WriteLine(p.Cells.Count);
-//            foreach (var cell in p.Cells)
-//                Console.WriteLine(cell);
 
-            var projection = new EquirectangularProjector().PlanetaryProjection(p);
+            var renderer = new CellRenderer();
+            var projector = new EquirectangularProjector();
+            var options = new CellRenderOptions
+            {
+                ShowCellOutline = false,
+                ShowConvectionDirection = true,
+                Layer = RenderLayer.Hemispherical
+            };
+
+            var projection = projector.ProjectCells(renderer.RenderCells(p.Cells, options));
             Console.WriteLine("{0} out of {1} displayed", projection.Count, p.Cells.Count);
             var s =
 @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
@@ -41,9 +49,7 @@ id=""layer1"">";
             var i = 0;
             foreach (var cell in projection)
             {
-                s += "<path\n style=\"fill:none;stroke:#000000;stroke-width:0.5px\"\n";
-                s += "d=\"m" + cell + "z\"\n";
-                s += "id=\"path" + i + "\"/>";
+                s += CellSVGGenerator.GetSVG(cell, i);
                 i++;
             }
             s += "</g></svg>";
