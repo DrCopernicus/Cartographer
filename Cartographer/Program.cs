@@ -1,8 +1,9 @@
-﻿using Cartographer.Renderer;
-using Cartographer.World;
-using Cartographer.World.Projectors;
+﻿using Cartographer.World;
 using System;
 using System.IO;
+using Cartographer.Projectors;
+using Cartographer.Renderers;
+using Cartographer.SVG;
 
 namespace Cartographer
 {
@@ -12,7 +13,7 @@ namespace Cartographer
         {
             var p = new Planet(5);
 
-            p.Simulate(500);
+            p.Simulate(5000);
 
             var projector = new EquirectangularProjector();
             var renderer = new MantleHeatRenderer();

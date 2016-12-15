@@ -1,7 +1,8 @@
-﻿using Cartographer.World.Cells;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Cartographer.World;
+using Cartographer.World.Cells;
 
-namespace Cartographer.World.Projectors
+namespace Cartographer.Projectors
 {
     public interface IProjector
     {

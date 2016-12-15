@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cartographer.World.Projectors
+namespace Cartographer.Renderers
 {
     public class CellRenderer
     {
-        public List<DisplayCell> RenderCells(List<Cell> cells, CellRenderOptions options)
+        public virtual List<DisplayCell> RenderCells(List<Cell> cells, CellRenderOptions options)
         {
-            return cells.Select(cell => RenderCell(cell, options)).Where(cell => cell != null).ToList();
+            return cells.Select(cell => RenderBaseCell(cell, options)).Where(cell => cell != null).ToList();
         }
 
-        public virtual DisplayCell RenderCell(Cell cell, CellRenderOptions options)
+        protected DisplayCell RenderBaseCell(Cell cell, CellRenderOptions options)
         {
             var newCell = new DisplayCell();
 

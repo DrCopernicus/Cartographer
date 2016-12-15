@@ -1,4 +1,4 @@
-﻿namespace Cartographer.World.Projectors
+﻿namespace Cartographer.Renderers
 {
     public struct CellRenderOptions
     {

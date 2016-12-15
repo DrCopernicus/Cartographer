@@ -59,5 +59,17 @@ namespace Cartographer.World
         {
             return string.Format("{0:0.000},{1:0.000}", X*100+157, Y*100+157);
         }
+
+        public static bool operator ==(Point a, Point b)
+        {
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+                return false;
+            return a.X == b.X && a.Y == b.Y && a.Z == b.Z;
+        }
+
+        public static bool operator !=(Point a, Point b)
+        {
+            return !(a == b);
+        }
     }
 }

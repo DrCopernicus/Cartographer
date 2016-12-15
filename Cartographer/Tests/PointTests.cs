@@ -1,7 +1,7 @@
 ﻿using Cartographer.World;
 using NUnit.Framework;
 using System;
-using Cartographer.World.Projectors;
+using Cartographer.Projectors;
 
 namespace Cartographer.Tests
 {

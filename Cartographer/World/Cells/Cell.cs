@@ -11,7 +11,8 @@ namespace Cartographer.World.Cells
 
         private double _windDirection;
         private double _windHeat;
-        private List<Cell> _neighbors;
+
+        public List<Cell> Neighbors { get; set; }
 
         public double WindDirection { get { return _windDirection; } }
         public double WindHeat { get { return _windDirection; } }
@@ -32,6 +33,7 @@ namespace Cartographer.World.Cells
         {
             _windDirection = 0;
             _windHeat = 0;
+            Neighbors = new List<Cell>();
             _points = points;
         }
 
@@ -39,12 +41,8 @@ namespace Cartographer.World.Cells
         {
             _windDirection = 0;
             _windHeat = 0;
+            Neighbors = new List<Cell>();
             _points = new[] { a, b, c };
-        }
-
-        public void Simulate()
-        {
-            MantleLayer.Simulate(this);
         }
 
         public List<Cell> Subdivide()

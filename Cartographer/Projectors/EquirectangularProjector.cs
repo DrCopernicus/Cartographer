@@ -1,9 +1,10 @@
-﻿using Cartographer.World.Cells;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cartographer.World;
+using Cartographer.World.Cells;
 
-namespace Cartographer.World.Projectors
+namespace Cartographer.Projectors
 {
     public class EquirectangularProjector : IProjector
     {

@@ -1,6 +1,8 @@
 ﻿using Cartographer.World.Cells;
+using Cartographer.World.Cells.Simulators.Mantle;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cartographer.World
 {
@@ -10,9 +12,12 @@ namespace Cartographer.World
 
         public List<Cell> Cells { get { return _cells; } }
 
+        private readonly MantleSimulator _mantleSimulator = new MantleSimulator();
+
         public Planet(int layers)
         {
             InitializeCells(layers);
+            CalculateNeighbors();
         }
 
         private void InitializeCells(int layers)
@@ -33,6 +38,24 @@ namespace Cartographer.World
             }
 
             _cells = cells;
+        }
+
+        //O(N^2) but I just want this to work
+        private void CalculateNeighbors()
+        {
+            for (var i = 0; i < Cells.Count; i++)
+            {
+                for (var j = i+1; j < Cells.Count; j++)
+                {
+                    if (HasAMatchingPoint(Cells[i], Cells[j]))
+                        Cells[i].Neighbors.Add(Cells[j]);
+                }
+            }
+        }
+
+        private bool HasAMatchingPoint(Cell a, Cell b)
+        {
+            return a.Points.Any(aPoint => b.Points.Any(bPoint => bPoint == aPoint));
         }
 
         private List<Cell> CreateIcosahedron()
@@ -85,8 +108,10 @@ namespace Cartographer.World
         public void Simulate(int ticks)
         {
             for (var i = 0; i < ticks; i++)
-                foreach (var cell in Cells)
-                    cell.Simulate();
+            {
+                Console.WriteLine("Simulating tick {0}", i);
+                _mantleSimulator.Simulate(Cells);
+            }
         }
     }
 }

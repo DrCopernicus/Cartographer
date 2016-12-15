@@ -2,12 +2,7 @@
 {
     public class MantleLayer
     {
-        public int Heat;
+        public double Heat;
         public double Direction;
-
-        public void Simulate(Cell cell)
-        {
-
-        }
     }
 }

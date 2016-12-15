@@ -1,7 +1,7 @@
-﻿using Cartographer.World.Cells;
-using System.Drawing;
+﻿using System.Drawing;
+using Cartographer.World.Cells;
 
-namespace Cartographer.Renderer
+namespace Cartographer.SVG
 {
     public static class CellSVGGenerator
     {
