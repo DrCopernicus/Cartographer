@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Cartographer.World.Cells
 {
-    public class Cell : ICell
+    public class Cell
     {
         private Point[] _points;
         public Point[] Points { get { return _points; } }

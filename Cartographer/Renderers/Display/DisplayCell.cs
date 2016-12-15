@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
+using Point = Cartographer.World.Point;
 
-namespace Cartographer.World.Cells
+namespace Cartographer.Renderers.Display
 {
     public class DisplayCell
     {

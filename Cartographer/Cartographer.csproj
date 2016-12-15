@@ -56,7 +56,8 @@
     <Compile Include="Common\RandomTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SVG\CellSVGGenerator.cs" />
+    <Compile Include="Renderers\Display\DisplayMap.cs" />
+    <Compile Include="SVG\SVGGenerator.cs" />
     <Compile Include="World\Cells\Layers\MantleLayer.cs" />
     <Compile Include="World\Cells\Simulators\Mantle\CellInHotSpot.cs" />
     <Compile Include="World\Cells\Simulators\Mantle\HotSpot.cs" />
@@ -64,8 +65,7 @@
     <Compile Include="Renderers\CellRenderOptions.cs" />
     <Compile Include="Tests\PointTests.cs" />
     <Compile Include="World\Cells\Cell.cs" />
-    <Compile Include="World\Cells\ICell.cs" />
-    <Compile Include="World\Cells\DisplayCell.cs" />
+    <Compile Include="Renderers\Display\DisplayCell.cs" />
     <Compile Include="World\Cells\Simulators\Tectonic\TectonicPlate.cs" />
     <Compile Include="World\Cells\Simulators\Tectonic\TectonicPlateSimulator.cs" />
     <Compile Include="World\Planet.cs" />

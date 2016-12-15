@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Cartographer.Renderers.Display;
+using Cartographer.World;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cartographer.World;
-using Cartographer.World.Cells;
 
 namespace Cartographer.Projectors
 {
     public class EquirectangularProjector : IProjector
     {
-        public List<DisplayCell> ProjectCells(List<DisplayCell> cells)
+        public DisplayMap ProjectCells(List<DisplayCell> cells)
         {
-            return cells.Select(ProjectCell).Where(cell => cell != null).ToList();
+            var displayCells = cells.Select(ProjectCell).Where(cell => cell != null).ToList();
+            return new DisplayMap(displayCells);
         }
 
         public DisplayCell ProjectCell(DisplayCell cell)

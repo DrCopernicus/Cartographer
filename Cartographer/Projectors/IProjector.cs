@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Cartographer.Renderers.Display;
 using Cartographer.World;
-using Cartographer.World.Cells;
+using System.Collections.Generic;
 
 namespace Cartographer.Projectors
 {
     public interface IProjector
     {
-        List<DisplayCell> ProjectCells(List<DisplayCell> cells);
+        DisplayMap ProjectCells(List<DisplayCell> cells);
         DisplayCell ProjectCell(DisplayCell cell);
         Point ProjectPoint(Point point);
     }
